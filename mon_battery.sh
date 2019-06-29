@@ -28,7 +28,7 @@ function graph() {
     -c CANVAS#000000 -c FONT#FFFFFF -c BACK#000000 \
     --end now --start end-$time \
     --title "$(hostname -s) battery level" \
-    -w 400 -h 200 \
+    -w 300 -h 150 \
     DEF:bat1_pct=$rrdfile:bat1_pct:AVERAGE:step=1 \
     DEF:bat0_pct=$rrdfile:bat0_pct:AVERAGE:step=1 \
     LINE3:bat0_pct#00ff00:"battery 0 level" \
@@ -51,7 +51,7 @@ function graph_phone_battery() {
         -c CANVAS#000000 -c FONT#FFFFFF -c BACK#000000 \
         --end now --start end-$time \
         --title "phone battery level" \
-        -w 400 -h 200 \
+        -w 300 -h 150 \
         DEF:phbat_pct=$rrdfile:phbat_pct:AVERAGE:step=1 \
         LINE3:phbat_pct#00ff00:"phone battery level" \
         AREA:phbat_pct#00ff0060 \
