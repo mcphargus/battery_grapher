@@ -14,8 +14,6 @@ rrdtool \
     $rrdfile \
     N@$bat0:$bat1
 
-
-
 function graph() {
     time=$1
     rrdtool \
