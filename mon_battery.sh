@@ -8,6 +8,12 @@ bat0=$(cat /sys/class/power_supply/BAT0/capacity)
 bat1=$(cat /sys/class/power_supply/BAT1/capacity)
 phbat=$(curl -s https://dweet.io/get/latest/dweet/for/rmphbatt | jq '.with[].content.battery')
 
+# dweet it yo
+curl -s -H "Content-Type: application/json" \
+    -X POST \
+    https://dweet.io/dweet/for/rmlapbat \
+    -d@- <<< $(jq -n -c --arg bat0 $bat0 --arg bat1 $bat1 '{bat0: $bat0, bat1: $bat1}')
+
 #echo "$bat0 $bat1"
 
 rrdtool \
