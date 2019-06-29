@@ -6,13 +6,14 @@ source /home/clint/Projects/batt_graph/config.sh
 
 bat0=$(cat /sys/class/power_supply/BAT0/capacity)
 bat1=$(cat /sys/class/power_supply/BAT1/capacity)
+phbat=$(curl -s https://dweet.io/get/latest/dweet/for/rmphbatt | jq '.with[].content.battery')
 
 #echo "$bat0 $bat1"
 
 rrdtool \
     update \
     $rrdfile \
-    N@$bat0:$bat1
+    N@$bat0:$bat1:$phbat
 
 function graph() {
     time=$1
@@ -36,3 +37,23 @@ graph 6h
 graph 24h
 graph 7d
 graph 1M
+
+function graph_phone_battery() {
+    time=$1
+    rrdtool \
+        graph $projhome/graph_phone_$time.png \
+        -c CANVAS#000000 -c FONT#FFFFFF -c BACK#000000 \
+        --end now --start end-$time \
+        --title "phone battery level" \
+        -w 400 -h 200 \
+        DEF:phbat_pct=$rrdfile:phbat_pct:AVERAGE:step=1 \
+        LINE3:phbat_pct#00ff00:"phone battery level" \
+        AREA:phbat_pct#00ff0060 \
+        LINE1:0 &> /dev/null
+}
+
+graph_phone_battery 3h
+graph_phone_battery 6h
+graph_phone_battery 24h
+graph_phone_battery 7d
+graph_phone_battery 1M

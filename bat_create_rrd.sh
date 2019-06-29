@@ -15,6 +15,7 @@ rrdtool \
     --step 1 \
     DS:bat1_pct:GAUGE:300:0:3000 \
     DS:bat0_pct:GAUGE:300:0:3000 \
+    DS:phbat_pct:GAUGE:300:0:3000 \
     RRA:AVERAGE:0.5:1:3h \
     RRA:AVERAGE:0.5:60:6h \
     RRA:AVERAGE:0.5:300:24h \
