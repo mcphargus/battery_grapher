@@ -4,8 +4,8 @@
 
 source /home/clint/Projects/batt_graph/config.sh
 
-bat0=$(acpi | head -n1 | awk '{print $4}' | cut -d% -f1)
-bat1=$(acpi | tail -n1 | awk '{print $4}' | cut -d% -f1)
+bat0=$(cat /sys/class/power_supply/BAT0/capacity)
+bat1=$(cat /sys/class/power_supply/BAT1/capacity)
 
 #echo "$bat0 $bat1"
 
