@@ -4,22 +4,41 @@
 
 source /home/clint/Projects/batt_graph/config.sh
 
-bat0=$(cat /sys/class/power_supply/BAT0/capacity)
-bat1=$(cat /sys/class/power_supply/BAT1/capacity)
-phbat=$(curl -s https://dweet.io/get/latest/dweet/for/rmphbatt | jq '.with[].content.battery')
+bat0_cap=$(cat /sys/class/power_supply/BAT0/capacity)
+bat1_cap=$(cat /sys/class/power_supply/BAT1/capacity)
+bat0_volt=$(cat /sys/class/power_supply/BAT0/voltage_now)
+bat1_volt=$(cat /sys/class/power_supply/BAT1/voltage_now)
+phbat_cap=$(curl -s https://dweet.io/get/latest/dweet/for/rmphbatt | jq '.with[].content.battery')
 
 # dweet it yo
+bat_data=$(jq -n -c \
+    --arg hostname $(hostname -s) \
+    --arg bat0_cap $bat0_cap \
+    --arg bat1_cap $bat1_cap \
+    --arg bat1_volt $bat1_volt \
+    --arg bat0_volt $bat0_volt \
+    '{
+        bat0: $bat0_cap,
+        bat1: $bat1_cap,
+        hostname: $hostname,
+        bat1_volt: $bat1_volt,
+        bat0_volt: $bat0_volt
+    }'
+)
+
+echo $bat_data
+
 curl -s -H "Content-Type: application/json" \
     -X POST \
     https://dweet.io/dweet/for/rmlapbat \
-    -d@- <<< $(jq -n -c --arg bat0 $bat0 --arg bat1 $bat1 '{bat0: $bat0, bat1: $bat1}')
+    -d@- <<< $bat_data
 
 #echo "$bat0 $bat1"
 
 rrdtool \
     update \
     $rrdfile \
-    N@$bat0:$bat1:$phbat
+    N@$bat0_cap:$bat1_cap:$phbat_cap
 
 function graph() {
     time=$1

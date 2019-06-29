@@ -51,7 +51,7 @@ Here's a sample graph.
 
 ![](graph_phone_3h.png)
 
-And here's the gauge in freeboard.
+And here's the gauge (in freeboard)[https://freeboard.io/board/2IoJxK].
 
 ![](freeboard_phone_graph.png)
 
