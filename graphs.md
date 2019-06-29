@@ -1,17 +1,17 @@
-## graphs
+# graphs
 
-### 3 hours
+## Laptop
 
-![](graph_3h.png)
+![](graph_3h.png) ![](graph_6h.png)
 
-### 6 hours
-![](graph_6h.png)
+![](graph_24h.png) ![](graph_7d.png)
 
-### 24 hours
-![](graph_24h.png)
-
-### 7 days
-![](graph_7d.png)
-
-### 1 month
 ![](graph_1M.png)
+
+## Phone
+
+![](graph_phone_3h.png) ![](graph_phone_6h.png)
+
+![](graph_phone_24h.png) ![](graph_phone_7d.png)
+
+![](graph_phone_1M.png)
