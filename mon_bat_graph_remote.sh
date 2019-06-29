@@ -4,8 +4,9 @@
 
 source /home/ec2-user/Projects/battery_grapher/config.sh
 
-bat0=$(curl -s https://dweet.io/get/latest/dweet/for/rmlapbat | jq '.with[].content.bat0')
-bat1=$(curl -s https://dweet.io/get/latest/dweet/for/rmlapbat | jq '.with[].content.bat1')
+bat_data=$(curl -s https://dweet.io/get/latest/dweet/for/rmlapbat)
+bat0=$(echo $bat_data | jq '.with[].content.bat0')
+bat1=$(echo $bat_data | jq '.with[].content.bat1')
 phbat=$(curl -s https://dweet.io/get/latest/dweet/for/rmphbatt | jq '.with[].content.battery')
 
 rrdtool \
