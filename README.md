@@ -54,3 +54,16 @@ Here's a sample graph.
 And here's the gauge in freeboard.
 
 ![](freeboard_phone_graph.png)
+
+### TODO
+
+* add output of the calls made from here to push to dweet.io.
+
+Honestly, I could replace rrd with dweet.io, but I don't want to. Part of this
+was the joy of learning what I feel like has been a great technology lost to the
+likes of graphite and grafana and cloudwatch. Whisper is cool, I get it.
+Cloudwatch has been my penultimate graphing solution at work forever, because
+it's beautifully implemented and simple and supports alerting out of the box.
+But, sometimes, you just want to go back to the days of administering Quake
+servers. Times were simpler. Once we kept track of frags, now we keep track of
+queue counts.
