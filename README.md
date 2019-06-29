@@ -57,7 +57,7 @@ And here's the gauge [in freeboard](https://freeboard.io/board/2IoJxK).
 
 ### TODO
 
-* add output of the calls made from here to push to dweet.io.
+* ~~add output of the calls made from here to push to dweet.io.~~
 
 Honestly, I could replace rrd with dweet.io, but I don't want to. Part of this
 was the joy of learning what I feel like has been a great technology lost to the
@@ -67,3 +67,5 @@ it's beautifully implemented and simple and supports alerting out of the box.
 But, sometimes, you just want to go back to the days of administering Quake
 servers. Times were simpler. Once we kept track of frags, now we keep track of
 queue counts.
+
+This is done, also added some battery voltage data.
