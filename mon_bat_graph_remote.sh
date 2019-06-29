@@ -5,6 +5,7 @@
 source /home/ec2-user/Projects/battery_grapher/config.sh
 
 bat_data=$(curl -s https://dweet.io/get/latest/dweet/for/rmlapbat)
+lap_host=$(echo $bat_data | jq '.with[].content.hostname')
 bat0=$(echo $bat_data | jq '.with[].content.bat0')
 bat1=$(echo $bat_data | jq '.with[].content.bat1')
 phbat=$(curl -s https://dweet.io/get/latest/dweet/for/rmphbatt | jq '.with[].content.battery')
@@ -20,7 +21,7 @@ function graph() {
     graph $projhome/graph_$time.png \
     -c CANVAS#000000 -c FONT#FFFFFF -c BACK#000000 \
     --end now --start end-$time \
-    --title "$(hostname -s) battery level" \
+    --title "$lap_host battery level" \
     -w 300 -h 150 \
     DEF:bat1_pct=$rrdfile:bat1_pct:AVERAGE:step=1 \
     DEF:bat0_pct=$rrdfile:bat0_pct:AVERAGE:step=1 \
