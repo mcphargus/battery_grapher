@@ -29,3 +29,28 @@ acpi command. Another day maybe.
 Here's a sample of a graph and there are [samples of different resolutions here](graphs.md).
 
 ![](graph_3h.png)
+
+## Phone support
+
+I've also been looking high and low for something that maintains historical
+graphs of my phone that I can port around. Something where I can get at the
+data. I bought a rad tool called AccuBattery of the play store and I highly
+recommend it, but it feels too polished, not hackery enough for me (admittedly I
+haven't dug through the logs).
+
+Anyway, I used tasker to do a HTTP Post every 5 minutes to a dweet.io board that
+I've wired into both freeboard.io and this script. So my graphs are getting
+saved to freeboard (though the data doesn't stick beyond a single session) and
+they're being saved to the same rrd file I'm using to monitor my laptop
+batteries. Ultimately, that means this little RRD file is holding a bunch of
+battery data, which is pretty cool. Should probably get this script and cronjob
+running on an aws microserver, so it can be pulling the data all the time, not
+just when my laptop is running.
+
+Here's a sample graph.
+
+![](graph_phone_3h.png)
+
+And here's the gauge in freeboard.
+
+![](freeboard_phone_graph.png)
