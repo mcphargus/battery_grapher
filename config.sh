@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export PATH=/home/clint/bin:/home/clint/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/clint/apps:/home/clint/apps/linux-amd64
+export PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/ec2-user/.local/bin:/home/ec2-user/bin
 
-projhome=/home/clint/Projects/batt_graph
+projhome=/home/ec2-user/Projects/battery_grapher
 rrdfile=$projhome/battery.rrd
