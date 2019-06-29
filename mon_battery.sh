@@ -20,8 +20,8 @@ function graph() {
     graph $projhome/graph_$time.png \
     -c CANVAS#000000 -c FONT#FFFFFF -c BACK#000000 \
     --end now --start end-$time \
-    --title "radmax battery level" \
-    -w 400 -h 200 \
+    --title "$(hostname -s) battery level" \
+    -w 400 -h 300 \
     DEF:bat1_pct=$rrdfile:bat1_pct:AVERAGE:step=1 \
     DEF:bat0_pct=$rrdfile:bat0_pct:AVERAGE:step=1 \
     LINE1:bat1_pct#0000ff:"battery 1 level" \
