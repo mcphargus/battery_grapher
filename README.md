@@ -17,7 +17,7 @@ about messing with that because it means I have to blow the current db away and
 start a fresh one, with no data. Moving the data between RRD databases is
 something I plan on learning how to do.
 
-## /sys/class/
+## /sys/class
 
 Stared at /sys/class/power_supply a little longer and it became pretty obvious
 that the value in /sys/class/power_supply/$BATX/capacity is the percentage of
