@@ -26,6 +26,6 @@ acpi command. Another day maybe.
 
 ### graph example
 
-Here's a sample of a graph
+Here's a sample of a graph and there are [samples of different resolutions here](graph.md).
 
 ![](graph_3h.png)
