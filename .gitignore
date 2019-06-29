@@ -1,4 +1,3 @@
 rrdbackup/*
-*.png
 **.rrd
 *.xml
