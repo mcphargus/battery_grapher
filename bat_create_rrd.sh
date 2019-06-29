@@ -4,7 +4,7 @@ source config.sh
 
 if [ -e $rrdfile ]
 then
-    cp $rrdfile rrdbackup/bat1\_$(date +%s).rrd
+    cp $rrdfile rrdbackup/$(basename $rrdfile)_$(date +%s)
 else
     echo "$rrdfile doesn't exist, no rrd to backup"
 fi
