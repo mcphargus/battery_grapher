@@ -23,3 +23,9 @@ Stared at /sys/class/power_supply a little longer and it became pretty obvious
 that the value in /sys/class/power_supply/$BATX/capacity is the percentage of
 capacity left, so I should retrofit this thing to use /sys/class rather than
 acpi command. Another day maybe.
+
+### graph example
+
+Here's a sample of a graph
+
+![](graph_3h.png)
